@@ -76,6 +76,8 @@ main {
             background: #fff;
             height: calc(100vh - 120px);
             min-height: 500px;
+            display: flex;
+            align-items: center;
         }
     }
 }

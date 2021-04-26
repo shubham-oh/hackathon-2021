@@ -25,10 +25,13 @@ export class ChatPageComponent implements OnInit, OnDestroy {
 
     if(!this.isForm){
       if(this.botSlug){
-        this.scriptURL += `&bot_id=${this.botSlug}&direct_bot=true&open=true`;
+        this.scriptURL += `&bot_id=${this.botSlug}&direct_bot=true&open=true&direct_link=true`;
+      }
+      else {
+        this.scriptURL += `&open=true&direct_link=true`
       }
     } else {
-      // this.scriptURL += `&form=true`
+      this.scriptURL += `&form=true`
       this.createFormArea();
     }
 
@@ -37,7 +40,6 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   }
 
   loadWidget(){
-      console.log('Loading visjs js/css files...');
       let script = document.createElement('script');
       script.id = "co-index";
       script.src = this.scriptURL;
@@ -50,10 +52,9 @@ export class ChatPageComponent implements OnInit, OnDestroy {
     // <div data-sbo-form-id="bot-d64ea7a812" style="border:1px solid; height: 400px;width: 100%;"></div>
     let div = document.createElement('div');
     div.setAttribute('data-sbo-form-id', this.botSlug);
-    div.style.border = '1px solid';
     div.style.height = '400px';
     div.style.width = '100%';
-    document.getElementsByTagName('body')[0].appendChild(div);    
+    document.getElementById('main-content').appendChild(div);    
   }
 
   ngOnDestroy(){
