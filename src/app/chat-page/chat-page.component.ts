@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-chat-page',
   templateUrl: './chat-page.component.html',
-  styleUrls: ['./chat-page.component.css']
+  styleUrls: ['./chat-page.component.scss']
 })
 export class ChatPageComponent implements OnInit, OnDestroy {
   botSlug = '';
@@ -16,7 +16,6 @@ export class ChatPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    debugger;
     let {params, queryParams} = this.activatedRoute.snapshot;
     
     this.botSlug = params.botSlug;
